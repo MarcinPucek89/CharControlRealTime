@@ -23,7 +23,6 @@ Adding new points to the chart is done by using the AddPoint method
  ```csharp
  Char.AddLegend("Your Legend");
  ```
- 
 
 ## License
 
