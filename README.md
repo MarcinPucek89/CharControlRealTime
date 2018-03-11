@@ -10,7 +10,7 @@ CharControlRealTime is a controlka which easily enables the presentation of data
 - read each point of the graph by hovering over the mouse
 - enable / disable drawing the chart in real time
 
-## Creating your first Char Program
+## Creating your first Char
 
 Char is the name of the control used in XAML
 
@@ -23,7 +23,7 @@ Adding new points to the chart is done by using the AddPoint method
  ```csharp
  Char.AddLegend("Your Legend");
  ```
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/Cu8dmw5t57k/0.jpg)](https://www.youtube.com/watch?v=Cu8dmw5t57k)
+ 
 
 ## License
 
