@@ -1,0 +1,66 @@
+﻿<UserControl x:Name="CharControl" x:Class="CharControlRealTime.Char"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CharControlRealTime"
+             mc:Ignorable="d"  Loaded="CharControl_Loaded" SizeChanged="CharControl_SizeChanged" >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition MaxWidth="1"/>
+            <ColumnDefinition MaxWidth="25"/>
+            <ColumnDefinition MaxWidth="50"/>
+            <ColumnDefinition/>
+            <ColumnDefinition MaxWidth="30"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition MaxHeight="20"/>
+            <RowDefinition/>
+            <RowDefinition MaxHeight="25"/>
+            <RowDefinition MaxHeight="20"/>
+            <RowDefinition MaxHeight="1"/>
+        </Grid.RowDefinitions>
+        
+        <TextBlock Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=NameAxisX}"  Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14"/>
+        <TextBlock Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=NameAxisY}"  Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" >
+            <TextBlock.LayoutTransform>
+                <RotateTransform Angle="-90"/>
+            </TextBlock.LayoutTransform>
+        </TextBlock>
+
+        <Canvas x:Name="value_y"       Grid.Column="2" Grid.Row="1"        Grid.RowSpan="2" />
+        <Canvas x:Name="value_x"       Grid.Column="3" Grid.ColumnSpan="1" Grid.Row="2" />
+        <Canvas x:Name="Chart_Border"  Grid.Column="3" Grid.Row="1" Background="White"/>
+        <Canvas x:Name="LineDrawe"     Grid.Column="3" Grid.Row="1"   />
+        <Canvas x:Name="CharDrawe"     Grid.Column="3" Grid.Row="1" ClipToBounds="True" Panel.ZIndex="2" />
+        <Canvas x:Name="toolTipCanva"  Grid.Column="3" Grid.Row="1" />
+        <Canvas x:Name="CharLegend"    Grid.Column="3" Grid.Row="1" ClipToBounds="True" Background="#00000000" MouseMove="CharLegend_MouseMove" MouseLeftButtonDown="CharLegend_MouseLeftButtonDown" MouseLeftButtonUp="CharLegend_MouseLeftButtonUp" MouseRightButtonDown="CharLegend_MouseRightButtonDown" Cursor="Pen" Panel.ZIndex="0" >
+            <Grid x:Name="Legenda" Height="60" Width="150" Margin="303,8,0,0" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition  Width="10"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2"/>
+                    <RowDefinition />
+                    <RowDefinition  Height="10"/>
+                </Grid.RowDefinitions>
+                <StackPanel Background="{Binding ColorCharLegend, ElementName=CharControl}" Visibility="{Binding VisibilityColorLegend, ElementName=CharControl}" Grid.Column="1" Grid.Row="1" Width="15" Height="15" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBlock x:Name="LegendaText" Text="{Binding LegendaTextBinding, ElementName=CharControl}" Grid.Column="2"  Grid.Row="1" Foreground="Black" TextWrapping="Wrap" UseLayoutRounding="False" VerticalAlignment="Center"/>
+
+                <StackPanel    Grid.Column="0" Grid.ColumnSpan="3"  Grid.Row="1"  Grid.RowSpan="3"     MouseMove="Legenda_MouseMove" Background="#5BE0DEDE">
+                    <StackPanel.Effect>
+                        <DropShadowEffect Direction="-20" ShadowDepth="0" Color="#FF515151" BlurRadius="30" Opacity="0.18" RenderingBias="Quality" FrameworkElement.FlowDirection="RightToLeft"/>
+                    </StackPanel.Effect>
+                    <StackPanel x:Name="TitleBarLegend"  Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0"  Height="0" Background="#83515151" Cursor="Hand" MouseMove="TitleBarLegend_MouseMove" MouseDown="TitleBarLegend_MouseDown" MouseUp="TitleBarLegend_MouseUp">
+                        <StackPanel.Effect>
+                            <BlurEffect Radius="11"/>
+                        </StackPanel.Effect>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </Canvas>
+    </Grid>
+</UserControl>
