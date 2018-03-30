@@ -410,7 +410,7 @@ namespace CharControlRealTime
             if (scalaX != 0){
                 double positionLineY = 0;
 
-                for (double i = odX; i <= _RangeX; i += scalaX){
+                for (double i = odX; i <= _RangeX; i = Math.Round(i,2) +  scalaX){
                     //calculation of the jump and beginning of the axis from the point from X => deducting it from the variable and the so-called zeroing and division by scale
                     positionLineY = (valueOsY * (i - odX));
 
@@ -459,7 +459,7 @@ namespace CharControlRealTime
             if (scalaY != 0){
                 double positionLineX = 0;
 
-                for (double i = odY; i <= _RangeY; i += scalaY){
+                for (double i = odY; i <= _RangeY; i = Math.Round(i, 2) + scalaY){
                     //calculation of the jump and beginning of the axis from the point from Y => deducting it from the variable and the so-called zeroing
                     positionLineX = heightChar - ((valueOsX) * ((i - odY)));
 
