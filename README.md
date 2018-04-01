@@ -24,6 +24,8 @@ Adding new points to the chart is done by using the AddPoint method
  Char.AddLegend("Your Legend");
  ```
 
+<img src="https://media.giphy.com/media/7YCARhnT7AwIIikDPj/giphy.gif" width="100%" height="120%" />
+
 ## License
 
 This project uses the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html).
